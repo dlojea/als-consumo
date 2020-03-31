@@ -18,15 +18,19 @@ import webapp2
 
 class MainHandler(webapp2.RequestHandler):
     def post(self):
-        kilometros = float(self.request.get("kilometros"))
-        tiempo = float(self.request.get("tiempo"))
-        consumo = float(self.request.get("consumo"))
+        try:
+            kilometros = float(self.request.get("kilometros"))
+            tiempo = float(self.request.get("tiempo"))
+            consumo = float(self.request.get("consumo"))
 
-        velocidad_media = kilometros / tiempo
-        consumo_total = consumo * kilometros
+            velocidad_media = kilometros / tiempo
+            consumo_total = consumo * kilometros
 
-        response = ("<div>Velocidad media = " + str(velocidad_media) + " km/h<div>" +
-                    "<div>Consumo total = " + str(consumo_total) + " L<div>")
+            response = ("<div>Velocidad media = " + str(velocidad_media) + " km/h<div>" +
+                        "<div>Consumo total = " + str(consumo_total) + " L<div>")
+        except ValueError:
+            # Si las entradas no son convertibles a float
+            response = "<div>Error: las entradas deben ser numeros<div>"
 
         self.response.write(response)
 

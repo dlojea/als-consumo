@@ -3,22 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Consumo</title>
+
+    <script>
+
+        function check() {
+            if (document.getElementById("tiempo").value <= 0) {
+                alert("El tiempo debe ser mayor de 0");
+                return false
+            }
+            return true
+        }
+
+    </script>
 </head>
 <body>
     <h1>Consumo</h1>
 
-    <form id="frmConsumo" action="/consumo" method="post">
+    <form id="frmConsumo" action="/consumo" method="post" onsubmit="return check()">
         <div>
             <label>Kilómetros (km): </label>
-            <input type="text" id="kilometros" name="kilometros" required>
+            <input type="number" step="0.01" id="kilometros" name="kilometros" required>
         </div>
         <div>
             <label>Tiempo (h): </label>
-            <input type="text" id="tiempo" name="tiempo" required>
+            <input type="number" step="0.01" id="tiempo" name="tiempo" required>
         </div>
         <div>
             <label>Consumo medio (L/km): </label>
-            <input type="text" id="consumo" name="consumo" required>
+            <input type="number" step="0.01" id="consumo" name="consumo" required>
         </div>
         <div>
             <input type="submit" value="Calcular">
