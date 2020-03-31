@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo</title>
+</head>
+<body>
+    <h1>Consumo</h1>
+
+    <form id="frmConsumo" action="/consumo" method="post">
+        <div>
+            <label>Kilómetros (km): </label>
+            <input type="text" id="kilometros" name="kilometros" required>
+        </div>
+        <div>
+            <label>Tiempo (h): </label>
+            <input type="text" id="tiempo" name="tiempo" required>
+        </div>
+        <div>
+            <label>Consumo medio (L/km): </label>
+            <input type="text" id="consumo" name="consumo" required>
+        </div>
+        <div>
+            <input type="submit" value="Calcular">
+        </div>
+    </form>
+</body>
+</html>
